@@ -2,8 +2,7 @@ import numpy as np
 # _________________ADAM OPTIMIZER___________________1,134,34,56,90,1,9,8
                 
 class AdamOptimizer:
-    
-    
+        
     
     def adam_optimizer(self,adam_opt_dict):
     
