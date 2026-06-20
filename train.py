@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from pandas.api.types import is_numeric_dtype
 from backward_propagation import BackwardPropagation
 logging.basicConfig(level=logging.ERROR)
-from dataset_processing_scratch import DatasetProcess, DatasetError
+from dataset_processing import DatasetProcess, DatasetError
 
 ith = 1
 batch_counter=0
@@ -35,7 +35,7 @@ forward_output_class.neuron_weights_output = np.random.randn(1,no_of_output_neur
 forward_output_class.neuron_bias_output  = np.zeros(1)
         
 
-filename = "/home/ebuka/deeplearning/housing-predictor-from-scratch/Housing.csv"
+filename = "/home/ebuka/deeplearning/Neural-Network-From-Scratch/dataset/Housing.csv"
 
 try:
     data_class = DatasetProcess(filename,"price" ,0.8) 
