@@ -75,8 +75,8 @@ Epoch: 900 Loss: 0.006306416134912575
 
 ```bash
 # Clone the repository
-git clone https://github.com/ebukagerald/housing-custom-nn.git
-cd housing-custom-nn
+git clone https://github.com/ebukagerald/Neural-Network-From-Scratch.git
+cd Neural-Network-From-Scratch
 
 # Install dependencies
 pip install numpy pandas
