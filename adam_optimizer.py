@@ -1,8 +1,14 @@
 import numpy as np
 # _________________ADAM OPTIMIZER___________________1,134,34,56,90,1,9,8
-                
+              
 class AdamOptimizer:
+    def __init__(self):
         
+        self.hyperParameter1 = 0.9000
+        self.hyperParameter2 = 0.9990
+        self.smoothening = 1e-8
+        self.learningRate =0.01
+
     
     def adam_optimizer(self,adam_opt_dict):
     
@@ -11,18 +17,13 @@ class AdamOptimizer:
         ith = adam_opt_dict['ith']
         lastLayer_firstMoment = adam_opt_dict['lastLayer_firstMoment']
         lastLayer_secondMoment = adam_opt_dict['lastLayer_secondMoment']
-        hyperParameter1 = adam_opt_dict['hyperParameter1']
-        hyperParameter2 = adam_opt_dict['hyperParameter2']
-        smoothening = adam_opt_dict['smoothening']
-        learningRate = adam_opt_dict['learningRate']
-        
+
+        m1 = self.hyperParameter1 * lastLayer_firstMoment + (1 - self.hyperParameter1)*grad
+        v1 = self.hyperParameter2 * lastLayer_secondMoment+ (1 - self.hyperParameter2 )*grad**2
     
-        m1 = hyperParameter1 * lastLayer_firstMoment + (1 - hyperParameter1)*grad
-        v1 = hyperParameter2 * lastLayer_secondMoment+ (1 - hyperParameter2 )*grad**2
-    
-        firstMomentBias = m1/(1-hyperParameter1**ith)
-        secondMomentBias = v1/(1-hyperParameter2**ith)
+        firstMomentBias = m1/(1-self.hyperParameter1**ith)
+        secondMomentBias = v1/(1-self.hyperParameter2**ith)
         
-        newWeight = oldWeightMatrix - learningRate * firstMomentBias / (np.sqrt(secondMomentBias) + smoothening) 
+        newWeight = oldWeightMatrix - self.learningRate * firstMomentBias / (np.sqrt(secondMomentBias) + self.smoothening) 
         return newWeight , m1, v1
 

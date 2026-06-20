@@ -20,6 +20,7 @@ class ForwardPropagation:
         forward = ReluActivation()
         self.input_layer_output,self.input_layer_derivative = forward.relu(z)
 
+        
         return  self.input_layer_output
        
         
